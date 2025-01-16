@@ -1,0 +1,6 @@
+com\christian\mstest\controller\response\BookResponse.class
+com\christian\mstest\repository\BookRepository.class
+com\christian\mstest\services\BookService.class
+com\christian\mstest\controller\BookController.class
+com\christian\mstest\model\Book.class
+com\christian\mstest\MstestApplication.class
