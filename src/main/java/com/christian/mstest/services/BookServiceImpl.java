@@ -1,10 +1,10 @@
 package com.christian.mstest.services;
 
-import com.christian.mstest.controller.response.BookResponse;
 import com.christian.mstest.model.Book;
 import com.christian.mstest.repository.BookRepository;
 
-import org.springframework.http.ResponseEntity;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,17 +16,19 @@ public class BookServiceImpl implements BookService{
         this.bookRepository = bookRepository;
     }
 
+    /*
     @Override
-    public ResponseEntity<BookResponse> getBookByTitle(String title) {
+    public Book getBookByTitle(String title) {
         Book book = bookRepository.findByTitle(title);
-        //if (book != null) {
-        //    BookResponse bookResponse = new BookResponse();
-        //    bookResponse.setTitle(book.getTitle());
-        //    bookResponse.setAuthor(book.getAuthor());
-        //    return ResponseEntity.ok(bookResponse);
-        //}
+        if (book != null) {
+            BookResponse bookResponse = new BookResponse(book.getTitle(), book.getAuthor());
+            return ResponseEntity.ok(bookResponse);
+        }
         return ResponseEntity.noContent().build();
+    }*/
+
+    public List<Book> getAllBooks(){
+        return this.bookRepository.findAll();
     }
 
-    public void method(){}
 }

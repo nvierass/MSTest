@@ -2,30 +2,35 @@ package com.christian.mstest.controller;
 
 import com.christian.mstest.controller.response.BookResponse;
 import com.christian.mstest.model.Book;
-import com.christian.mstest.repository.BookRepository;
-
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import com.christian.mstest.services.BookService;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BookController implements BookControllerApi{
 
-    private final BookRepository bookRepository;
+    private final BookService bookService;
 
-    public BookController(BookRepository bookRepositor) {
-        this.bookRepository = bookRepositor;
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
     }
 
+    @Override
+    public ResponseEntity<List<BookResponse>> getAllBooks(){
+        List<Book> books = this.bookService.getAllBooks();
+        List<BookResponse> bookResponses = books.stream()
+            .map(book -> new BookResponse(book.getTitle(), book.getAuthor()))
+            .collect(Collectors.toList());
+        return new ResponseEntity<List<BookResponse>>(bookResponses, HttpStatus.OK);
+    }
+
+
+    /* 
     @Override
     public ResponseEntity<BookResponse> getBookById(
             @Validated 
@@ -38,5 +43,5 @@ public class BookController implements BookControllerApi{
             return ResponseEntity.status(HttpStatus.OK).body(new BookResponse(book.getTitle(), book.getAuthor()));
         }
         return new ResponseEntity<BookResponse>(HttpStatus.NOT_IMPLEMENTED);
-    } 
+    } */
 }

@@ -1,8 +1,12 @@
 package com.christian.mstest.services;
 
-import com.christian.mstest.controller.response.BookResponse;
-import org.springframework.http.ResponseEntity;
+import com.christian.mstest.model.Book;
+
+import java.util.List;
+
 
 public interface BookService {
-    public ResponseEntity<BookResponse> getBookByTitle(String title);
+    //public Book getBookByTitle(String title);
+
+    public List<Book> getAllBooks();
 }
