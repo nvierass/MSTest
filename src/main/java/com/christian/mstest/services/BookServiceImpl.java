@@ -28,7 +28,11 @@ public class BookServiceImpl implements BookService{
     }*/
 
     public List<Book> getAllBooks(){
-        return this.bookRepository.findAll();
+        return bookRepository.findAll();
+    }
+
+    public Book saveBook(Book book){
+        return bookRepository.save(book);
     }
 
 }

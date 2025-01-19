@@ -15,16 +15,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.christian.mstest.controller.request.BookDTO;
 import com.christian.mstest.controller.response.BookResponse;
 import com.christian.mstest.model.Book;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @RequestMapping("/v1/books")
 public interface BookControllerApi {
     
-    /*@GetMapping
+    /*
+    @GetMapping
     public default ResponseEntity<BookResponse> getBookById(
             @Validated 
             @NotNull(message = "Debe especificar un ID")
@@ -32,13 +35,14 @@ public interface BookControllerApi {
             @RequestParam Long id) {
         return new ResponseEntity<BookResponse>(HttpStatus.NOT_IMPLEMENTED);
     } */
+
     @GetMapping
     public default ResponseEntity<List<BookResponse>> getAllBooks(){
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 
     @PostMapping
-    public default ResponseEntity<BookResponse> createBook(@RequestBody Book book){
+    public default ResponseEntity<BookResponse> createBook(@Valid @RequestBody Book book){
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 
@@ -53,7 +57,7 @@ public interface BookControllerApi {
     }
 
     @GetMapping("/{id}")
-    public default ResponseEntity<List<BookResponse>> getBook(@PathVariable @Validated Long id){
+    public default ResponseEntity<List<BookResponse>> getBook(@PathVariable() @Validated Long id){
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 

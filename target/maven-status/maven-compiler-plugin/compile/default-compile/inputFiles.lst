@@ -1,6 +1,9 @@
 D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\controller\BookController.java
 D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\controller\BookControllerApi.java
+D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\controller\request\BookDTO.java
 D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\controller\response\BookResponse.java
+D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\exceptions\handler\ExceptionManager.java
+D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\exceptions\handler\response\ErrorResponse.java
 D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\model\Book.java
 D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\MstestApplication.java
 D:\Books Chamblat\mstest\src\main\java\com\christian\mstest\repository\BookRepository.java

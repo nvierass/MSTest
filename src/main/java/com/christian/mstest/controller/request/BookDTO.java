@@ -1,21 +1,16 @@
-package com.christian.mstest.model;
+package com.christian.mstest.controller.request;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Entity
-@Table(name = "Books")
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
-public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+public class BookDTO {
 
     @NotBlank (message = "Se debe indicar un título.")
     @NotEmpty (message = "Se debe indicar un título.")
