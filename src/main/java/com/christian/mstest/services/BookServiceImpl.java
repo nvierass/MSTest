@@ -4,6 +4,7 @@ import com.christian.mstest.model.Book;
 import com.christian.mstest.repository.BookRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -35,4 +36,11 @@ public class BookServiceImpl implements BookService{
         return bookRepository.save(book);
     }
 
+    public void deleteAllBooks(){
+        bookRepository.deleteAll();
+    }
+
+    public Optional<Book> findBookById(Long id){
+        return bookRepository.findById(id);
+    }
 }

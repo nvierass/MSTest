@@ -57,7 +57,7 @@ public interface BookControllerApi {
     }
 
     @GetMapping("/{id}")
-    public default ResponseEntity<List<BookResponse>> getBook(@PathVariable() @Validated Long id){
+    public default ResponseEntity<BookResponse> getBook(@PathVariable() @Validated Long id){
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 

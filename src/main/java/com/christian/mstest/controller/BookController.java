@@ -13,8 +13,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +44,24 @@ public class BookController implements BookControllerApi{
         Book createdBook = bookService.saveBook(book);
         BookResponse bookResponse = new BookResponse(createdBook.getTitle(), createdBook.getAuthor());
         return new ResponseEntity<BookResponse>(bookResponse, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<String> deleteAllBooks(){
+        bookService.deleteAllBooks();
+        String message = "Se han eliminado todos los libros.";
+        return new ResponseEntity<String>(message, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<BookResponse> getBook(Long id){
+        Optional<Book> optionalBook = bookService.findBookById(id);
+        if (optionalBook.isPresent()){
+            Book book = optionalBook.get();
+            BookResponse bookResponse = new BookResponse(book.getTitle(), book.getAuthor());
+            return new ResponseEntity<BookResponse>(bookResponse, HttpStatus.OK);
+        }
+        return null;
     }
 
 
