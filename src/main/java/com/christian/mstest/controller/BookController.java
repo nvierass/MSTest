@@ -61,7 +61,7 @@ public class BookController implements BookControllerApi{
             BookResponse bookResponse = new BookResponse(book.getTitle(), book.getAuthor());
             return new ResponseEntity<BookResponse>(bookResponse, HttpStatus.OK);
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 
