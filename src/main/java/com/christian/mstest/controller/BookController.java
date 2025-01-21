@@ -1,24 +1,16 @@
 package com.christian.mstest.controller;
 
-import com.christian.mstest.controller.request.BookDTO;
 import com.christian.mstest.controller.response.BookResponse;
 import com.christian.mstest.model.Book;
 import com.christian.mstest.services.BookService;
-
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
